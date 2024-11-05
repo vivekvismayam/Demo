@@ -15,6 +15,7 @@
                 type="String"
                 name="input"
                 label="Input Text"
+                default="{!$Label.MyLabel}"
                 />
         </targetConfig>
     </targetConfigs>
