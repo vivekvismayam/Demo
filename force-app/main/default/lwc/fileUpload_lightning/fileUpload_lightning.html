@@ -1,0 +1,14 @@
+<template>
+    
+    <lightning-card title="Lightning file Upload " icon-name="custom:custom63">
+        <div class="slds-p-around_medium">
+            <lightning-file-upload
+                label="Attach Files"
+                name="fileUploader"
+                record-id={recordId}
+                accept=".pdf,.png,.jpg,.jpeg"
+                onuploadfinished={handleUploadFinished}>
+            </lightning-file-upload>
+        </div>
+    </lightning-card>
+</template>

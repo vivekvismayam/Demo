@@ -1,0 +1,48 @@
+<template>
+    <lightning-input  type="text" label="CV Id" onchange={handleCVChange} value={cv}></lightning-input>
+    <lightning-button variant="brand" label="details" title="details" onclick={setRecordId} class="slds-m-left_x-small"></lightning-button>
+
+    <lightning-card title="Files" icon-name="standard:document">
+        <template if:true={files.length}>
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <div class="slds-truncate">Title</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate">Type</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate">Size (KB)</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate">Actions</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={files} for:item="file">
+                        <tr key={file.Id}>
+                            <td>
+                                <div class="slds-truncate">{file.Title}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate">{file.FileType}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate">{file.ContentSize}</div>
+                            </td>
+                            <td>
+                                <lightning-button label="View" onclick={handleViewFile} data-id={file.ContentDocumentId}></lightning-button>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </template>
+        <template if:false={files.length}>
+            <p>No files found for this record.</p>
+        </template>
+    </lightning-card>
+</template>
